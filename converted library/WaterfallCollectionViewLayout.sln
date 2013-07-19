@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterfallCollectionViewLayout", "WaterfallCollectionViewLayout.csproj", "{60E67337-00ED-4794-99D1-2A1D472CAAE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterfallCollectionViewLayoutDemo", "WaterfallCollectionViewLayoutDemo\WaterfallCollectionViewLayoutDemo.csproj", "{FD3757CE-956A-4FF4-BD93-61EC4D641431}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		AppStore|iPhone = AppStore|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Release|iPhone.Build.0 = Release|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{60E67337-00ED-4794-99D1-2A1D472CAAE9}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Debug|iPhone.Build.0 = Debug|iPhone
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Release|iPhone.ActiveCfg = Release|iPhone
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Release|iPhone.Build.0 = Release|iPhone
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{FD3757CE-956A-4FF4-BD93-61EC4D641431}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = WaterfallCollectionViewLayoutDemo\WaterfallCollectionViewLayoutDemo.csproj
+	EndGlobalSection
+EndGlobal

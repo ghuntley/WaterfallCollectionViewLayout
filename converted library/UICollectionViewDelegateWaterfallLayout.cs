@@ -6,16 +6,11 @@ using MonoTouch.UIKit;
 
 namespace WaterfallCollectionViewLayout
 {
-	public abstract class UICollectionViewDelegateWaterfallLayout : UICollectionViewDelegate
+	public abstract class PBCollectionViewDelegateWaterfallLayout : UICollectionViewDelegate
 	{
-		public UICollectionViewDelegateWaterfallLayout () { }
+		public PBCollectionViewDelegateWaterfallLayout (List<float> cellHeights) { }
 
-		public UICollectionViewDelegateWaterfallLayout (List<float> cellHeights)
-		{
-
-		}
-
-		public abstract float HeightForItem (UICollectionView collectionView, UICollectionViewWaterfallLayout collectionViewLayout, NSIndexPath indexPath);
+		public abstract float HeightForItem (UICollectionView collectionView, PBCollectionViewWaterfallLayout collectionViewLayout, NSIndexPath indexPath);
 	}
 }
 

@@ -74,8 +74,8 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="WaterfallCollectionViewLayoutBinding">
-      <HintPath>..\WaterfallCollectionViewLayoutBinding\bin\Debug\WaterfallCollectionViewLayoutBinding.dll</HintPath>
+    <Reference Include="WaterfallCollectionViewLayout">
+      <HintPath>..\converted library\bin\Debug\WaterfallCollectionViewLayout.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

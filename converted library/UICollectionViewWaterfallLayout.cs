@@ -3,10 +3,11 @@ using System.Drawing;
 using System.Collections.Generic;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using MonoTouch.CoreGraphics;
 
 namespace WaterfallCollectionViewLayout
 {
-	public class UICollectionViewWaterfallLayout : UICollectionViewLayout
+	public class PBCollectionViewWaterfallLayout : UICollectionViewLayout
 	{
 		// Property fields
 		private int columnCount;
@@ -20,7 +21,7 @@ namespace WaterfallCollectionViewLayout
 		private List<UICollectionViewLayoutAttributes> itemAttributes;
 		private static RectangleF rectForLayoutAttributes;
 
-		public UICollectionViewWaterfallLayout ()
+		public PBCollectionViewWaterfallLayout ()
 		{
 			// Default settings
 			ColumnCount = 2;
@@ -31,7 +32,7 @@ namespace WaterfallCollectionViewLayout
 			itemAttributes = new List<UICollectionViewLayoutAttributes> ();
 		}
 
-		public UICollectionViewWaterfallLayout (int numberOfColumns, float cellWidth, UIEdgeInsets insetOfSection)
+		public PBCollectionViewWaterfallLayout (int numberOfColumns, float cellWidth, UIEdgeInsets insetOfSection)
 		{
 			ColumnCount = numberOfColumns;
 			ItemWidth = cellWidth;
@@ -86,7 +87,12 @@ namespace WaterfallCollectionViewLayout
 			}
 		}
 
-		public UICollectionViewDelegateWaterfallLayout WaterfallDelegate { get; set; }
+		public PBCollectionViewDelegateWaterfallLayout Delegate { get; set; }
+
+		public override PointF TargetContentOffset (PointF proposedContentOffset, PointF scrollingVelocity)
+		{
+			return base.TargetContentOffset (proposedContentOffset, scrollingVelocity);
+		}
 
 		public override SizeF CollectionViewContentSize 
 		{
@@ -118,33 +124,45 @@ namespace WaterfallCollectionViewLayout
 			var width = CollectionView.Frame.Size.Width - sectionInset.Left - sectionInset.Right;
 			interItemSpacing = (float) Math.Floor ((width - columnCount * itemWidth) / (columnCount - 1));
 
+			Console.WriteLine ("InterItemSpacing: {0}", interItemSpacing);
+			Console.WriteLine ("Item Count {0}", itemCount);
+
 			SetupSectionInsets ();
 			PlaceItem ();
 		}
 
 		public override UICollectionViewLayoutAttributes LayoutAttributesForItem (NSIndexPath indexPath)
 		{
-			return itemAttributes[indexPath.Item];
+			return itemAttributes[indexPath.Row];
 		}
+
 
 		public override UICollectionViewLayoutAttributes[] LayoutAttributesForElementsInRect (RectangleF rect)
 		{
 			rectForLayoutAttributes = rect;
+
 			List<UICollectionViewLayoutAttributes> attributes = itemAttributes.FindAll (FindItemAttributes);
 
+			foreach (var a in attributes)
+			{
+				Console.WriteLine (a.Frame);
+			}
+			
 			return attributes.ToArray ();
 		}
 
 		public override bool ShouldInvalidateLayoutForBoundsChange (RectangleF newBounds)
 		{
-			return false;
+			return true;
 		}
 
 		private static bool FindItemAttributes (UICollectionViewLayoutAttributes attribute)
 		{
-			if (attribute.Frame == rectForLayoutAttributes) {
+			if (rectForLayoutAttributes.IntersectsWith (attribute.Frame)) {
+				Console.WriteLine ("FindItemAttributes TRUE");
 				return true;
 			} else {
+				Console.WriteLine ("FindItemAttributes FALSE");
 				return false;
 			}
 		}
@@ -153,6 +171,7 @@ namespace WaterfallCollectionViewLayout
 		{
 			for (int i = 0; i < columnCount; i++) {
 				columnHeights.Add (sectionInset.Top);
+				Console.WriteLine ("SetupSectionInsets: {0}", i);
 			}
 		}
 
@@ -160,8 +179,8 @@ namespace WaterfallCollectionViewLayout
 		{
 			for (int i = 0; i < itemCount; i++) {
 				var indexPath = NSIndexPath.FromItemSection (i, 0);
-				Console.WriteLine ("HeightForItem {0}", WaterfallDelegate.HeightForItem (CollectionView, this, indexPath));
-				var itemHeight = WaterfallDelegate.HeightForItem (CollectionView, this, indexPath);
+				Console.WriteLine ("HeightForItem {0}", Delegate.HeightForItem (CollectionView, this, indexPath));
+				var itemHeight = Delegate.HeightForItem (CollectionView, this, indexPath);
 				var columnIndex = ShortestColumnIndex ();
 
 				var xOffset = sectionInset.Left + (itemWidth + interItemSpacing) * columnIndex;
@@ -169,6 +188,7 @@ namespace WaterfallCollectionViewLayout
 
 				var attributes = UICollectionViewLayoutAttributes.CreateForCell (indexPath);
 				attributes.Frame = new RectangleF (xOffset, yOffset, itemWidth, itemHeight);
+				Console.WriteLine ("Added attribute in PlaceItem: {0}", attributes.Frame);
 				itemAttributes.Add (attributes);
 				columnHeights[columnIndex] = yOffset + itemHeight + interItemSpacing;
 			}
@@ -189,6 +209,8 @@ namespace WaterfallCollectionViewLayout
 				index++;
 			}
 
+			Console.WriteLine ("Shortest Index: {0}", shortestIndex);
+
 			return shortestIndex;
 		}
 
@@ -206,6 +228,8 @@ namespace WaterfallCollectionViewLayout
 
 				index++;
 			}
+
+			Console.WriteLine ("Largest Index: {0}", largestIndex);
 
 			return largestIndex;
 		}

@@ -1,0 +1,35 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../orly/WaterfallViewController.cs">
+    <Files>
+      <File FileName="../orly/WaterfallViewController.cs" Line="24" Column="4" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="WaterfallCollectionViewDemo" expanded="True">
+            <Node name="References" expanded="True">
+              <Node name="/Users/pierceboggan/Desktop/Dropbox/Coding/Github/Personal Projects/WaterfallCollectionViewLayout/converted library/bin/Debug/WaterfallCollectionViewLayout.dll" selected="True" />
+            </Node>
+          </Node>
+          <Node name="WaterfallCollectionViewLayout" expanded="True" />
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>list</Value>
+          <Value>e.Result</Value>
+          <Value>cell.BackgroundColor</Value>
+          <Value>cdm</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

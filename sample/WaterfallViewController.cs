@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using WaterfallCollectionViewLayoutBinding;
+using WaterfallCollectionViewLayout;
 
 namespace WaterfallCollectionViewDemo
 {
@@ -46,6 +46,8 @@ namespace WaterfallCollectionViewDemo
 		private void UpdateLayout ()
 		{
 			var layout = (UICollectionViewWaterfallLayout)CollectionView.CollectionViewLayout;
+
+			if (layout.
 			layout.ColumnCount = (uint) (CollectionView.Bounds.Size.Width / width);
 			layout.ItemWidth = width;
 		}

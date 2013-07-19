@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using WaterfallCollectionViewLayoutBinding;
+using WaterfallCollectionViewLayout;
 
 namespace WaterfallCollectionViewDemo
 {
