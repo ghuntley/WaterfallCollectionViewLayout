@@ -124,9 +124,6 @@ namespace WaterfallCollectionViewLayout
 			var width = CollectionView.Frame.Size.Width - sectionInset.Left - sectionInset.Right;
 			interItemSpacing = (float) Math.Floor ((width - columnCount * itemWidth) / (columnCount - 1));
 
-			Console.WriteLine ("InterItemSpacing: {0}", interItemSpacing);
-			Console.WriteLine ("Item Count {0}", itemCount);
-
 			SetupSectionInsets ();
 			PlaceItem ();
 		}
@@ -142,11 +139,6 @@ namespace WaterfallCollectionViewLayout
 			rectForLayoutAttributes = rect;
 
 			List<UICollectionViewLayoutAttributes> attributes = itemAttributes.FindAll (FindItemAttributes);
-
-			foreach (var a in attributes)
-			{
-				Console.WriteLine (a.Frame);
-			}
 			
 			return attributes.ToArray ();
 		}
@@ -159,10 +151,8 @@ namespace WaterfallCollectionViewLayout
 		private static bool FindItemAttributes (UICollectionViewLayoutAttributes attribute)
 		{
 			if (rectForLayoutAttributes.IntersectsWith (attribute.Frame)) {
-				Console.WriteLine ("FindItemAttributes TRUE");
 				return true;
 			} else {
-				Console.WriteLine ("FindItemAttributes FALSE");
 				return false;
 			}
 		}
@@ -171,7 +161,6 @@ namespace WaterfallCollectionViewLayout
 		{
 			for (int i = 0; i < columnCount; i++) {
 				columnHeights.Add (sectionInset.Top);
-				Console.WriteLine ("SetupSectionInsets: {0}", i);
 			}
 		}
 
@@ -179,7 +168,6 @@ namespace WaterfallCollectionViewLayout
 		{
 			for (int i = 0; i < itemCount; i++) {
 				var indexPath = NSIndexPath.FromItemSection (i, 0);
-				Console.WriteLine ("HeightForItem {0}", Delegate.HeightForItem (CollectionView, this, indexPath));
 				var itemHeight = Delegate.HeightForItem (CollectionView, this, indexPath);
 				var columnIndex = ShortestColumnIndex ();
 
@@ -188,7 +176,6 @@ namespace WaterfallCollectionViewLayout
 
 				var attributes = UICollectionViewLayoutAttributes.CreateForCell (indexPath);
 				attributes.Frame = new RectangleF (xOffset, yOffset, itemWidth, itemHeight);
-				Console.WriteLine ("Added attribute in PlaceItem: {0}", attributes.Frame);
 				itemAttributes.Add (attributes);
 				columnHeights[columnIndex] = yOffset + itemHeight + interItemSpacing;
 			}
@@ -209,8 +196,6 @@ namespace WaterfallCollectionViewLayout
 				index++;
 			}
 
-			Console.WriteLine ("Shortest Index: {0}", shortestIndex);
-
 			return shortestIndex;
 		}
 
@@ -228,8 +213,6 @@ namespace WaterfallCollectionViewLayout
 
 				index++;
 			}
-
-			Console.WriteLine ("Largest Index: {0}", largestIndex);
 
 			return largestIndex;
 		}
