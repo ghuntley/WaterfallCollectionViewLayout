@@ -15,7 +15,6 @@ namespace WaterfallCollectionViewLayout
 		private UIEdgeInsets sectionInset;
 
 		// Class-related fields
-		private PBCollectionViewDelegateWaterfallLayout pbDelegate;
 		private int itemCount;
 		private List<float> columnHeights;
 		private float interItemSpacing;
@@ -88,17 +87,7 @@ namespace WaterfallCollectionViewLayout
 			}
 		}
 
-		public PBCollectionViewDelegateWaterfallLayout WaterfallDelegate 
-		{
-			get 
-			{
-				return pbDelegate;
-			}
-			set 
-			{
-				pbDelegate = value;
-			}
-		}
+		public PBCollectionViewDelegateWaterfallLayout Delegate { get; set; }
 
 		public override PointF TargetContentOffset (PointF proposedContentOffset, PointF scrollingVelocity)
 		{
@@ -190,8 +179,8 @@ namespace WaterfallCollectionViewLayout
 		{
 			for (int i = 0; i < itemCount; i++) {
 				var indexPath = NSIndexPath.FromItemSection (i, 0);
-				Console.WriteLine ("HeightForItem {0}", WaterfallDelegate.HeightForItem (CollectionView, this, indexPath));
-				var itemHeight = WaterfallDelegate.HeightForItem (CollectionView, this, indexPath);
+				Console.WriteLine ("HeightForItem {0}", Delegate.HeightForItem (CollectionView, this, indexPath));
+				var itemHeight = Delegate.HeightForItem (CollectionView, this, indexPath);
 				var columnIndex = ShortestColumnIndex ();
 
 				var xOffset = sectionInset.Left + (itemWidth + interItemSpacing) * columnIndex;

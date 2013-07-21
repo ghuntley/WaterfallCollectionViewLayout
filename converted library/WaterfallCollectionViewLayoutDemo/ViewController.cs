@@ -46,7 +46,7 @@ namespace WaterfallCollectionViewLayoutDemo
 			{
 				ColumnCount = 2,
 				ItemWidth = 129,
-				WaterfallDelegate = pbDelegate,
+				Delegate = pbDelegate,
 				SectionInset = new UIEdgeInsets (9, 9, 9, 9)
 			};
 
