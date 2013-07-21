@@ -17,7 +17,7 @@ namespace WaterfallCollectionViewLayoutDemo
 		{
 			data = tags;
 
-			CollectionView.AutoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth;
+			// CollectionView.AutoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth;
 			CollectionView.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile ("Background.png"));
 			CollectionView.Frame = new RectangleF(0, 0, View.Bounds.Width, View.Bounds.Height);
 		}
@@ -27,6 +27,7 @@ namespace WaterfallCollectionViewLayoutDemo
 			base.ViewDidLoad ();
 
 			CollectionView.RegisterClassForCell (typeof (WaterfallCell), CELL_IDENTIFIER);
+
 			View.AddSubview (CollectionView);
 		}
 
@@ -64,7 +65,6 @@ namespace WaterfallCollectionViewLayoutDemo
 
 			return cell;
 		}
-
 	}
 }
 

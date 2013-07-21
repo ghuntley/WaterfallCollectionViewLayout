@@ -1,18 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../orly/WaterfallViewController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone.6.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="UICollectionViewWaterfallLayout.cs">
     <Files>
-      <File FileName="../orly/WaterfallViewController.cs" Line="24" Column="4" />
+      <File FileName="UICollectionViewWaterfallLayout.cs" Line="35" Column="37" />
+      <File FileName="WaterfallCollectionViewLayoutDemo/WaterfallCollectionViewController.cs" Line="67" Column="4" />
+      <File FileName="WaterfallCollectionViewLayoutDemo/WaterfallDelegate.cs" Line="27" Column="4" />
+      <File FileName="WaterfallCollectionViewLayoutDemo/Main.cs" Line="16" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="WaterfallCollectionViewDemo" expanded="True">
-            <Node name="References" expanded="True">
-              <Node name="/Users/pierceboggan/Desktop/Dropbox/Coding/Github/Personal Projects/WaterfallCollectionViewLayout/converted library/bin/Debug/WaterfallCollectionViewLayout.dll" selected="True" />
-            </Node>
+          <Node name="WaterfallCollectionViewLayout" expanded="True">
+            <Node name="UICollectionViewWaterfallLayout.cs" selected="True" />
           </Node>
-          <Node name="WaterfallCollectionViewLayout" expanded="True" />
+          <Node name="WaterfallCollectionViewLayoutDemo" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">

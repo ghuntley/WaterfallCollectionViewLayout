@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,9 +12,13 @@ namespace WaterfallCollectionViewLayoutDemo
 	{
 		List<Tag> tags;
 		List<float> cellHeights;
+		PBCollectionViewWaterfallLayout layout;
+		WaterfallDelegate pbDelegate;
+		WaterfallCollectionViewController vc;
 
 		public ViewController ()
 		{
+
 			tags = new List<Tag> ();
 			tags.Add (new Tag { Name = "Test", Image = UIImage.FromFile ("Stock1.png") });
 			tags.Add (new Tag { Name = "Test", Image = UIImage.FromFile ("Stock2.png") });
@@ -29,21 +34,24 @@ namespace WaterfallCollectionViewLayoutDemo
 				var height = tag.Image.Size.Height;
 				cellHeights.Add (height);
 			}
+
+			pbDelegate = new WaterfallDelegate (cellHeights);
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
-			var layout = new PBCollectionViewWaterfallLayout () 
+			layout = new PBCollectionViewWaterfallLayout () 
 			{
 				ColumnCount = 2,
-				Delegate = new WaterfallDelegate (cellHeights),
+				ItemWidth = 129,
+				WaterfallDelegate = pbDelegate,
 				SectionInset = new UIEdgeInsets (9, 9, 9, 9)
 			};
 
-			var view = new WaterfallCollectionViewController (layout, tags);
-			View.AddSubview (view.View);
+			vc = new WaterfallCollectionViewController (layout, tags);
+			View.AddSubview (vc.View);
 		}
 	}
 }
