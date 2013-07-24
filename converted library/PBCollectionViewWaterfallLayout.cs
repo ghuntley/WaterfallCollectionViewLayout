@@ -106,7 +106,8 @@ namespace WaterfallCollectionViewLayout
 				var columnIndex = LongestColumnIndex ();
 				var height = columnHeights[columnIndex];
 
-				contentSize.Height = height - interItemSpacing + sectionInset.Bottom;
+				// Originally: contentSize.Height = height - interItemSpacing + sectionInset.Bottom;
+				contentSize.Height = height + sectionInset.Bottom;
 
 				return contentSize;
 			}
