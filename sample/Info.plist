@@ -8,9 +8,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SourceSansPro-Bold.otf</string>
-	</array>
 </dict>
 </plist>

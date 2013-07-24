@@ -1,25 +1,24 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using WaterfallCollectionViewLayout;
 
-namespace WaterfallCollectionViewDemo
+namespace WaterfallCollectionViewLayoutDemo
 {
-	public class WaterfallDelegate : UICollectionViewDelegateWaterfallLayout
+	public class WaterfallDelegate : PBCollectionViewDelegateWaterfallLayout
 	{
 		List<float> cellHeights;
 
-		public WaterfallDelegate (List<float> cellHeights)
+		public WaterfallDelegate (List<float> cellHeights) : base (cellHeights)
 		{
 			this.cellHeights = cellHeights;
 		}
 
-		public override float CollectionView (UICollectionView collectionView, UICollectionViewWaterfallLayout collectionViewLayout, NSIndexPath indexPath)
+		public override float HeightForItem (UICollectionView collectionView, PBCollectionViewWaterfallLayout collectionViewLayout, NSIndexPath indexPath)
 		{
-			return cellHeights[indexPath.Row];
-		} 
+			return cellHeights [indexPath.Row];
+		}
 	}
 }
 

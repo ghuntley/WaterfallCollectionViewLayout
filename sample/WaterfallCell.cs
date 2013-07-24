@@ -3,12 +3,12 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace WaterfallCollectionViewDemo
+namespace WaterfallCollectionViewLayoutDemo
 {
 	public class WaterfallCell : UICollectionViewCell
 	{
-		UITextField DisplayLabel;
-		UIImageView PlaceholderImage;
+		public UITextField DisplayLabel { get; set; }
+		public UIImageView PlaceholderImage { get; set; }
 
 		[Export ("initWithFrame:")]
 		public WaterfallCell (RectangleF frame) : base (frame)
@@ -18,8 +18,6 @@ namespace WaterfallCollectionViewDemo
 				BackgroundColor = UIColor.White,
 				Font = UIFont.FromName ("SourceSansPro-Bold", 15f),
 				Frame = new RectangleF (0, 0, 129, 18),
-				//LeftViewMode = UITextFieldViewMode.Always,
-				//LeftView = new UIImageView (UIImage.FromFile ("Tag.jpg")),
 				TextAlignment = UITextAlignment.Center,
 				TextColor = UIColor.LightGray
 			};

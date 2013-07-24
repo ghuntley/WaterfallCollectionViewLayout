@@ -5,33 +5,26 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using WaterfallCollectionViewLayout;
 
-namespace WaterfallCollectionViewDemo
+namespace WaterfallCollectionViewLayoutDemo
 {
-	public class WaterfallViewController : UICollectionViewController
+	public class WaterfallCollectionViewController : UICollectionViewController
 	{
-		int width;
-		int count;
-		NSString CELL_IDENTIFIER;
-		List<float> cellHeights;
 		List<Tag> data;
 
-		public WaterfallViewController (List<Tag> tags, List<float> cellHeights, UICollectionViewWaterfallLayout layout) : base (layout)
+		static NSString CELL_IDENTIFIER = new NSString ("WATERFALL_CELL");
+
+		public WaterfallCollectionViewController (UICollectionViewLayout layout, List<Tag> tags): base (layout)
 		{
-			width = 129;
-			CELL_IDENTIFIER = new NSString ("WATERFALL_CELL");
-			this.cellHeights = cellHeights;
 			data = tags;
 
-			layout.Delegate = new WaterfallDelegate (cellHeights);
-			CollectionView.RegisterClassForCell (typeof (WaterfallCell), CELL_IDENTIFIER);
-			CollectionView.AutoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth;
-			CollectionView.Frame = new RectangleF(0, 0, View.Bounds.Width, View.Bounds.Height);
 			CollectionView.BackgroundColor = UIColor.FromPatternImage (UIImage.FromFile ("Background.png"));
 		}
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			CollectionView.RegisterClassForCell (typeof (WaterfallCell), CELL_IDENTIFIER);
 
 			View.AddSubview (CollectionView);
 		}
@@ -45,11 +38,9 @@ namespace WaterfallCollectionViewDemo
 
 		private void UpdateLayout ()
 		{
-			var layout = (UICollectionViewWaterfallLayout)CollectionView.CollectionViewLayout;
-
-			if (layout.
-			layout.ColumnCount = (uint) (CollectionView.Bounds.Size.Width / width);
-			layout.ItemWidth = width;
+			var layout = (PBCollectionViewWaterfallLayout)CollectionView.CollectionViewLayout;
+			layout.ColumnCount = (int)(CollectionView.Bounds.Size.Width / Constants.CellWidth);
+			layout.ItemWidth = Constants.CellWidth;
 		}
 
 		public override int NumberOfSections (UICollectionView collectionView)
@@ -62,6 +53,15 @@ namespace WaterfallCollectionViewDemo
 			return data.Count;
 		}
 
+		public override void ItemSelected (UICollectionView collectionView, NSIndexPath indexPath)
+		{
+			var cell = data [indexPath.Row];
+			var message = string.Format ("You clicked on {0}!", cell.Name);
+
+			new UIAlertView ("Clicked", message, null, "Okay", null).Show ();
+		}
+
+
 		public override UICollectionViewCell GetCell (UICollectionView collectionView, NSIndexPath indexPath)
 		{
 			var cell = (WaterfallCell) collectionView.DequeueReusableCell (CELL_IDENTIFIER, indexPath);
@@ -73,3 +73,4 @@ namespace WaterfallCollectionViewDemo
 		}
 	}
 }
+

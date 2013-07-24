@@ -1,37 +1,74 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using WaterfallCollectionViewLayout;
 
-namespace WaterfallCollectionViewDemo
+namespace WaterfallCollectionViewLayoutDemo
 {
-	// The UIApplicationDelegate for the application. This class is responsible for launching the 
-	// User Interface of the application, as well as listening (and optionally responding) to 
-	// application events from iOS.
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		// class-level declarations
+		// UICollectionView-related
+		List<float> cellHeights;
+		PBCollectionViewDelegateWaterfallLayout collectionViewDelegate;
+		PBCollectionViewWaterfallLayout collectionViewLayout;
+		WaterfallCollectionViewController collectionViewController;
+		List<Tag> tags;
+
 		UIWindow window;
-		ViewController viewController;
-		//
-		// This method is invoked when the application has loaded and is ready to run. In this 
-		// method you should instantiate the window, load the UI into it and then make the window
-		// visible.
-		//
-		// You have 17 seconds to return from this method, or iOS will terminate your application.
-		//
+
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
-			
-			viewController = new ViewController ();
-			window.RootViewController = viewController;
+
+			SetupLayout ();
+
+			collectionViewController = new WaterfallCollectionViewController (collectionViewLayout, tags);
+			window.RootViewController = collectionViewController;
 			window.MakeKeyAndVisible ();
 			
 			return true;
 		}
+
+		private void SetupLayout ()
+		{
+			PopulateTags ();
+			CalculateCellHeights ();
+
+			collectionViewDelegate = new WaterfallDelegate (cellHeights);
+
+			collectionViewLayout = new PBCollectionViewWaterfallLayout () 
+			{
+				ColumnCount = 2,
+				ItemWidth = 129,
+				Delegate = collectionViewDelegate,
+				SectionInset = new UIEdgeInsets (9, 9, 9, 9)
+			};
+		}
+
+		private void PopulateTags ()
+		{
+			tags = new List<Tag> ();
+			tags.Add (new Tag { Name = "Test", Image = UIImage.FromFile ("Stock1.png") });
+			tags.Add (new Tag { Name = "Test", Image = UIImage.FromFile ("Stock2.png") });
+			tags.Add (new Tag { Name = "Test", Image = UIImage.FromFile ("Stock3.png") });
+			tags.Add (new Tag { Name = "Test", Image = UIImage.FromFile ("Stock1.png") });
+			tags.Add (new Tag { Name = "Test", Image = UIImage.FromFile ("Stock2.png") });
+			tags.Add (new Tag { Name = "Test", Image = UIImage.FromFile ("Stock3.png") });
+			tags.Add (new Tag { Name = "Test", Image = UIImage.FromFile ("Stock1.png") });
+		}
+
+		private void CalculateCellHeights ()
+		{
+			cellHeights = new List<float> ();
+
+			foreach (var tag in tags) 
+			{
+				var height = tag.Image.Size.Height;
+				cellHeights.Add (height);
+			}
+		}
 	}
 }
-

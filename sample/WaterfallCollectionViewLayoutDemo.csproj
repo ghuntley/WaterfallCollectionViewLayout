@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FD3757CE-956A-4FF4-BD93-61EC4D641431}</ProjectGuid>
+    <ProjectGuid>{81A99DA6-883D-40D5-BA69-43EDD86F3DB8}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>WaterfallCollectionViewLayoutDemo</RootNamespace>
@@ -20,11 +20,9 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
+    <ConsolePause>false</ConsolePause>
     <MtouchDebug>true</MtouchDebug>
-    <MtouchProfiling>true</MtouchProfiling>
-    <MtouchUseSGen>true</MtouchUseSGen>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -32,8 +30,8 @@
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
+    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,8 +41,8 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
     <MtouchDebug>true</MtouchDebug>
+    <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -53,8 +51,8 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>
@@ -62,9 +60,9 @@
     <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <BuildIpa>true</BuildIpa>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
@@ -92,20 +90,13 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="WaterfallCollectionViewController.cs" />
-    <Compile Include="WaterfallCell.cs" />
-    <Compile Include="WaterfallDelegate.cs" />
-    <Compile Include="ViewController.cs" />
     <Compile Include="Tag.cs" />
+    <Compile Include="WaterfallCollectionViewController.cs" />
+    <Compile Include="WaterfallDelegate.cs" />
+    <Compile Include="WaterfallCell.cs" />
     <Compile Include="Constants.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\WaterfallCollectionViewLayout.csproj">
-      <Project>{60E67337-00ED-4794-99D1-2A1D472CAAE9}</Project>
-      <Name>WaterfallCollectionViewLayout</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Background.png" />
     <BundleResource Include="Resources\SourceSansPro-Bold.otf" />
@@ -113,5 +104,11 @@
     <BundleResource Include="Resources\Stock2.png" />
     <BundleResource Include="Resources\Stock3.png" />
     <BundleResource Include="Resources\Tag.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\converted library\WaterfallCollectionViewLayout.csproj">
+      <Project>{60E67337-00ED-4794-99D1-2A1D472CAAE9}</Project>
+      <Name>WaterfallCollectionViewLayout</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

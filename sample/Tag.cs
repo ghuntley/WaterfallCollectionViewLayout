@@ -1,7 +1,7 @@
 using System;
 using MonoTouch.UIKit;
 
-namespace WaterfallCollectionViewDemo
+namespace WaterfallCollectionViewLayoutDemo
 {
 	public class Tag
 	{
