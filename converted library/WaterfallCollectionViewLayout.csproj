@@ -41,7 +41,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="UICollectionViewWaterfallLayout.cs" />
-    <Compile Include="UICollectionViewDelegateWaterfallLayout.cs" />
+    <Compile Include="PBCollectionViewDelegateWaterfallLayout.cs" />
+    <Compile Include="PBCollectionViewWaterfallLayout.cs" />
   </ItemGroup>
 </Project>
