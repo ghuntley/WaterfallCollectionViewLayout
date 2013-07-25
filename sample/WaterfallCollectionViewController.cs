@@ -36,6 +36,8 @@ namespace WaterfallCollectionViewLayoutDemo
 			UpdateLayout ();
 		}
 
+		// Important: Make sure your UpdateLayout () is similar to this. Call UpdateLayout () whenever something
+		// changes, like the view appearing or an orientation change.
 		private void UpdateLayout ()
 		{
 			var layout = (PBCollectionViewWaterfallLayout)CollectionView.CollectionViewLayout;

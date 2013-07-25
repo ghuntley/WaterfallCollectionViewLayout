@@ -15,6 +15,8 @@ namespace WaterfallCollectionViewLayoutDemo
 			this.cellHeights = cellHeights;
 		}
 
+		// Important: The only method that the delegate *has* to override. Just return the value the cell's height, which you have usually calculated
+		// beforehand.
 		public override float HeightForItem (UICollectionView collectionView, PBCollectionViewWaterfallLayout collectionViewLayout, NSIndexPath indexPath)
 		{
 			return cellHeights [indexPath.Row];

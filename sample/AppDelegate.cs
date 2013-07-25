@@ -10,7 +10,8 @@ namespace WaterfallCollectionViewLayoutDemo
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		// UICollectionView-related
+		// Important: Remember to keep class-level references to your objects,
+		// or they may be garbage collected when they fall out of scope.
 		List<float> cellHeights;
 		PBCollectionViewDelegateWaterfallLayout collectionViewDelegate;
 		PBCollectionViewWaterfallLayout collectionViewLayout;
@@ -32,6 +33,7 @@ namespace WaterfallCollectionViewLayoutDemo
 			return true;
 		}
 
+		// Sets up the layout for use by WaterfallCollectionViewController
 		private void SetupLayout ()
 		{
 			PopulateTags ();
@@ -48,6 +50,8 @@ namespace WaterfallCollectionViewLayoutDemo
 			};
 		}
 
+		// Represents sample data that would normally be pulled via a local database or
+		// web service.
 		private void PopulateTags ()
 		{
 			tags = new List<Tag> ();
@@ -60,6 +64,10 @@ namespace WaterfallCollectionViewLayoutDemo
 			tags.Add (new Tag { Name = "Test", Image = UIImage.FromFile ("Stock1.png") });
 		}
 
+		// Important: This method calculates the heights of each cell, which, if not done correctly
+		// will cause significant issues in drawing cells. Depending on your UICollectionViewCell, you
+		// may just end up adding static content (that never changes) heights with dynamic heights calculated
+		// from the data used to populate the cells.
 		private void CalculateCellHeights ()
 		{
 			cellHeights = new List<float> ();
