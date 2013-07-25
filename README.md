@@ -4,6 +4,8 @@ A Xamarin.iOS library for creating waterfall-styled UICollectionViewLayouts, sim
 
 Coming Soon: A component for the [Xamarin Component Store](http://components.xamarin.com).
 
+![Two-Column Screenshot](https://github.com/pierceboggan/WaterfallCollectionViewLayout/blob/master/Screenshot.png)
+
 ## Getting Started
 In order to get up and running with WaterfallCollectionViewLayout, you must have minimal knowledge of working with UICollectionViews. If you have never worked with UICollectionViews, they are very similar in implementation to a UITableView, with a view different marks. I would recommend stepping through the [Introduction to Collection Views](http://docs.xamarin.com/guides/ios/user_interface/introduction_to_collection_views) document from Xamarin.
 
