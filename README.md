@@ -35,14 +35,14 @@ Before continuing on, you will need to setup a UICollectionViewController, as we
 1. Add a method where layout recalculations can take place.
 
 Example:
-'''
+```
   	private void UpdateLayout ()
 		{
 			var layout = (PBCollectionViewWaterfallLayout)CollectionView.CollectionViewLayout;
 			layout.ColumnCount = (int)(CollectionView.Bounds.Size.Width / Constants.CellWidth);
 			layout.ItemWidth = Constants.CellWidth;
 		}
-'''
+```
 
 2. Call the method in ViewDidAppear and other methods when view-related changes appear (data source updated, oreientation changed).
 
