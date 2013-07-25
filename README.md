@@ -32,7 +32,6 @@ Before continuing on, you will need to setup a UICollectionViewController, as we
 4. Set the SectionInset property.
 
 ### UICollectionViewController
-1. Add a method where layout recalculations can take place.
 
 Example:
 ```
@@ -40,10 +39,10 @@ private void UpdateLayout ()
 {
 	var layout = (PBCollectionViewWaterfallLayout)CollectionView.CollectionViewLayout;
 	layout.ColumnCount = (int)(CollectionView.Bounds.Size.Width / Constants.CellWidth);
-	layout.ItemWidth = Constants.CellWidth;
+	layout.ItemWidth = 140;
 }
 ```
-
+1. Add a method where layout recalculations can take place.
 2. Call the method in ViewDidAppear and other methods when view-related changes appear (data source updated, oreientation changed).
 
 You should now have a fully-functional waterfall UICollectionView. Check out the sample project for example implementation-level details.
