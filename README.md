@@ -36,12 +36,12 @@ Before continuing on, you will need to setup a UICollectionViewController, as we
 
 Example:
 ```
-  	private void UpdateLayout ()
-		{
-			var layout = (PBCollectionViewWaterfallLayout)CollectionView.CollectionViewLayout;
-			layout.ColumnCount = (int)(CollectionView.Bounds.Size.Width / Constants.CellWidth);
-			layout.ItemWidth = Constants.CellWidth;
-		}
+private void UpdateLayout ()
+{
+	var layout = (PBCollectionViewWaterfallLayout)CollectionView.CollectionViewLayout;
+	layout.ColumnCount = (int)(CollectionView.Bounds.Size.Width / Constants.CellWidth);
+	layout.ItemWidth = Constants.CellWidth;
+}
 ```
 
 2. Call the method in ViewDidAppear and other methods when view-related changes appear (data source updated, oreientation changed).
