@@ -1,6 +1,8 @@
 # WaterfallCollectionViewLayout
 
-A Xamarin.iOS component for creating waterfall-styled UICollectionViewLayouts, similar to the one seen both on the Pinterest website and mobile app suite). It is based on the Objective-C version [UIWaterfallCollectionViewLayout](https://github.com/chiahsien/UICollectionViewWaterfallLayout), by Nelson. There is both a binding, as well as a feature-complete C# version, although moving forward all releases will be centered around the C# version.
+A Xamarin.iOS library for creating waterfall-styled UICollectionViewLayouts, similar to the one seen both on the Pinterest website and mobile app suite). It is based on the Objective-C version [UIWaterfallCollectionViewLayout](https://github.com/chiahsien/UICollectionViewWaterfallLayout), by Nelson. There is both a binding, as well as a feature-complete C# version, although moving forward all releases will be centered around the C# version.
+
+Coming Soon: A component for the [Xamarin Component Store](http://components.xamarin.com).
 
 ## Getting Started
 In order to get up and running with WaterfallCollectionViewLayout, you must have minimal knowledge of working with UICollectionViews. If you have never worked with UICollectionViews, they are very similar in implementation to a UITableView, with a view different marks. I would recommend stepping through the [Introduction to Collection Views](http://docs.xamarin.com/guides/ios/user_interface/introduction_to_collection_views) document from Xamarin.
@@ -33,12 +35,14 @@ Before continuing on, you will need to setup a UICollectionViewController, as we
 1. Add a method where layout recalculations can take place.
 
 Example:
+'''
   	private void UpdateLayout ()
 		{
 			var layout = (PBCollectionViewWaterfallLayout)CollectionView.CollectionViewLayout;
 			layout.ColumnCount = (int)(CollectionView.Bounds.Size.Width / Constants.CellWidth);
 			layout.ItemWidth = Constants.CellWidth;
 		}
+'''
 
 2. Call the method in ViewDidAppear and other methods when view-related changes appear (data source updated, oreientation changed).
 
